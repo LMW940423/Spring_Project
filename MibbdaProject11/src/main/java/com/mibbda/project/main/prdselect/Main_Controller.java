@@ -52,4 +52,9 @@ public class Main_Controller {
 		
 		return "main/productView";
 	}
+	
+	@RequestMapping("intro.five")
+	public String intro() {
+		return "main/intro";
+	}
 }

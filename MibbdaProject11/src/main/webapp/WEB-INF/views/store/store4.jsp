@@ -5,13 +5,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>이벤트 목록</title>
+<title>태블릿/휴대폰</title>
+</head>
 <script src="./js/jquery-3.3.1.min.js"></script>
 <style>
+
 #notice{
-	width:1000px;
+	width:800px;
 	margin:0 auto;
 	margin-top:50px;
+}
+td{
+text-align: center;
+}
+th{
+text-align: center;
 }
 tr{
 height: 30px;
@@ -77,26 +85,25 @@ button:hover {
 	background-color:#fff;
 }
 </style>
-<%@include file="../main/Header.jsp" %>
 <body>
-
+<%@include file="../main/Header.jsp" %>
 <%request.setCharacterEncoding("utf-8"); %>
 <div id="notice">
-<h2>&nbsp; 이벤트</h2><br>
+<h2>&nbsp;유저용 스토어 태블릿/휴대폰</h2><br>
 
 	<table>
 		<tr>
-			<th width="60px;">번호</th>
-			<th width="370px;">제목</th> <!-- 제목 클릭시 수정은 불가능한 이벤트 내용과 당첨자 정보 띄우기  -->
-			<th width="100px;">시작 날짜</th>
-			<th width="100px;">종료 날짜</th>
+			<th width="200px;">상품 사진</th>
+			<th width="350px;">상품 이름</th>
+			<th width="100px;">상품 가격</th>
 		</tr>
-		<c:forEach items="${eventList}" var="dto">
+		<c:forEach items="${store4}" var="dto">
 			<tr>
-			<td>${dto.eSeqno}</td><!-- 번호 -->
-				<td><a href = "eventViewUser.five?eTitle=${dto.eTitle}&eSeqno=${dto.eSeqno}&eFilename=${dto.eFilename}&eContent=${dto.eContent}&startDate=${dto.startDate}&endDate=${dto.endDate}">${dto.eTitle}</a></td><!-- 제목 --> 
-				<td>${dto.startDate}</td><!-- 이벤트 시작 날짜 -->
-				<td>${dto.endDate}</td><!-- 이벤트 종료 날짜 -->
+				<td><a href = "productShowMain.five?prdNo=${dto.prdNo}&prdName=${dto.prdName}&prdPrice=${dto.prdPrice}
+				&prdFilename=${dto.prdFilename}">
+				<img src="${pageContext.request.contextPath}/resources/image/${dto.prdFilename}"></a></td>
+				<td>&nbsp;${dto.prdName}</td>
+				<td>&nbsp;${dto.prdPrice}&nbsp;</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -105,11 +112,11 @@ button:hover {
 	<table>
 			<tr>
 				<c:if test="${startPage!=1}">
-					<a href="./eventList.five?page=${startPage-1}">[이전]</a>
+					<a href="./store4.five?page=${startPage-1}">[이전]</a>
 				</c:if>
 				
 			   <c:forEach var="i" begin="${startPage}" end="${endPage}" varStatus="cnt">
-			       <a href="./eventList.five?page=${i}">[
+			       <a href="./store4.five?page=${i}">[
 			        <font color="#000000" />
 			          <c:if test="${currentPage == i}">
 			          <font color="#bbbbbb" />
@@ -119,12 +126,12 @@ button:hover {
 			       </a>
 			   </c:forEach> 
 				<c:if test="${endPage!=totalPage}">
-					<a href="./eventList.five?page=${endPage+1}">다음 ▶</a>
+					<a href="./store4.five?page=${endPage+1}">다음 ▶</a>
 				</c:if>
 			</tr>
 		</table>
 		</div>
-	</div>	
+	</div>
+	<%@include file="../main/Footer.jsp" %>
 </body>
-<%@include file="../main/Footer.jsp" %>
 </html>

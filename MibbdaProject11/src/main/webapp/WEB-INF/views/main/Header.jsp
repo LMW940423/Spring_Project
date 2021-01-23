@@ -392,8 +392,7 @@ img { border:0; }
          
         	<div id="mainMenuBox">
             	<ul id="menuItem">
-                	<li><a href="intro.five
-                	">미쁘다?</a></li>
+                	<li><a href="intro.five">미쁘다?</a></li>
                     <li class="menuItemHover"><a href="storeMain.five">스토어</a></li>
                     <li class="menuItemHover"><a href="eventList.five">이벤트</a></li>
                     

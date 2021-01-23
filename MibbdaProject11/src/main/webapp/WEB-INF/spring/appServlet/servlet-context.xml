@@ -55,54 +55,18 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	</beans:bean>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-- ////////////////민우/////////////// -->
 	<!--커맨드--> 
 	<beans:bean name="check_DuplicatedID" class="com.mibbda.project.signup.select.SignUp_IDCheck_Command"></beans:bean>
 	<beans:bean name="check_DuplicatedEmail" class="com.mibbda.project.signup.select.SignUp_EmailCheck_Command"></beans:bean>
 	<beans:bean name="JoinUS_Complete" class="com.mibbda.project.signup.register.SignUp_JoinUsComplete_Command"></beans:bean>
 	<beans:bean name="Show_Main_Prds" class="com.mibbda.project.main.prdselect.Main_prd_Select_Command"></beans:bean>
 	<beans:bean name="Show_prdList" class="com.mibbda.project.store.select.Store_Select_manageProductCommand"></beans:bean>
+	<beans:bean name="Show_store1List" class="com.mibbda.project.store.select.Store_Select_Store1Command"></beans:bean>
+	<beans:bean name="Show_store2List" class="com.mibbda.project.store.select.Store_Select_Store2Command"></beans:bean>
+	<beans:bean name="Show_store3List" class="com.mibbda.project.store.select.Store_Select_Store3Command"></beans:bean>
+	<beans:bean name="Show_store4List" class="com.mibbda.project.store.select.Store_Select_Store4Command"></beans:bean>
+	
+	
 	<!-- ///////////////////////////////// -->
 	
 	

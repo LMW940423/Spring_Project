@@ -6,26 +6,75 @@
     
 <mapper namespace="com.mibbda.project.main.prdselect.Main_prdselect_Dao">
 
-<select id="NowPrd" resultType="com.mibbda.project.main.prdselect.Dto_product">
-		SELECT PRDNO, PRDFILENAME, PRDNAME , PRDPRICE FROM ORDERDETAIL O, PRODUCT P WHERE P.PRDNO = O.GOODS_PRDNO ORDER BY ORDQTY DESC LIMIT 5
-</select>
-<select id="NewPrd" resultType="com.mibbda.project.main.prdselect.Dto_product">
-		SELECT PRDNO, PRDFILENAME, PRDNAME , PRDPRICE FROM  PRODUCT P WHERE P.PRDNO ORDER BY PRDNO DESC LIMIT 5
-</select>
-<select id="Notice" resultType="com.mibbda.project.main.prdselect.Dto_notice">
-		SELECT NSEQNO,NTITLE,NCONTENT,NDATE,ADMIN_ADMINID FROM NOTICE  ORDER BY NSEQNO DESC
-</select>
-<select id="prd_Detail" resultType="com.mibbda.project.main.prdselect.Dto_product">
+	<select id="NowPrd"
+		resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT PRDNO, PRDFILENAME, PRDNAME , PRDPRICE FROM ORDERDETAIL O, PRODUCT P
+		WHERE P.PRDNO = O.GOODS_PRDNO ORDER BY ORDQTY DESC LIMIT 5
+	</select>
+	<select id="NewPrd"
+		resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT PRDNO, PRDFILENAME, PRDNAME , PRDPRICE FROM PRODUCT P WHERE P.PRDNO
+		ORDER BY PRDNO DESC LIMIT 5
+	</select>
+	<select id="Notice"
+		resultType="com.mibbda.project.main.prdselect.Dto_notice">
+		SELECT NSEQNO,NTITLE,NCONTENT,NDATE,ADMIN_ADMINID FROM NOTICE ORDER BY
+		NSEQNO DESC
+	</select>
+	<select id="prd_Detail"
+		resultType="com.mibbda.project.main.prdselect.Dto_product">
 		SELECT * FROM PRODUCT WHERE PRDNO = #{param1}
 	</select>
-	
-<select id="productList" resultType="com.mibbda.project.main.prdselect.Dto_product">
-		SELECT @ROWNUM := @ROWNUM + 1 AS RNO, M.* FROM PRODUCT M, (SELECT @ROWNUM :=0) TMP ORDER BY RNO LIMIT #{param1}, #{param2}
+
+	<select id="productList"
+		resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT @ROWNUM := @ROWNUM + 1 AS RNO, M.* FROM PRODUCT M, (SELECT @ROWNUM
+		:=0) TMP ORDER BY RNO LIMIT #{param1}, #{param2}
 	</select>
-	
-<select id="getBoardCount" resultType="Integer">
+
+	<select id="getBoardCount" resultType="Integer">
 		SELECT COUNT(*) FROM PRODUCT
 	</select>
+
+	<select id="storeList1"
+		resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT @ROWNUM := @ROWNUM + 1 AS RNO, M.* FROM PRODUCT M, (SELECT @ROWNUM
+		:=0) TMP WHERE CTGTYPE='생활/주방' ORDER BY RNO LIMIT #{param1}, #{param2}
+	</select>
+
+	<select id="getBoardCount_Store1" resultType="Integer">
+		SELECT COUNT(*) FROM PRODUCT WHERE CTGTYPE = '생활/주방'
+	</select>
+
+	<select id="storeList2"
+		resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT @ROWNUM := @ROWNUM + 1 AS RNO, M.* FROM PRODUCT M, (SELECT @ROWNUM
+		:=0) TMP WHERE CTGTYPE='화장품' ORDER BY RNO LIMIT #{param1}, #{param2}
+	</select>
+
+	<select id="getBoardCount_Store2" resultType="Integer">
+		SELECT COUNT(*) FROM PRODUCT WHERE CTGTYPE = '화장품'
+	</select>
+
+	<select id="storeList3"
+		resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT @ROWNUM := @ROWNUM + 1 AS RNO, M.* FROM PRODUCT M, (SELECT @ROWNUM
+		:=0) TMP WHERE CTGTYPE='유아/완구' ORDER BY RNO LIMIT #{param1}, #{param2}
+	</select>
+
+	<select id="getBoardCount_Store3" resultType="Integer">
+		SELECT COUNT(*) FROM PRODUCT WHERE CTGTYPE = '유아/완구'
+	</select>
+
+	<select id="storeList4"
+		resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT @ROWNUM := @ROWNUM + 1 AS RNO, M.* FROM PRODUCT M, (SELECT @ROWNUM
+		:=0) TMP WHERE CTGTYPE='태블릿/휴대폰' ORDER BY RNO LIMIT #{param1},
+		#{param2}
+	</select>
 	
+	<select id="getBoardCount_Store4" resultType="Integer">
+		SELECT COUNT(*) FROM PRODUCT WHERE CTGTYPE = '태블릿/휴대폰'
+	</select>
 
 </mapper>

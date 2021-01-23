@@ -17,6 +17,24 @@ public interface Main_prdselect_Dao {
 	public ArrayList<Dto_product> productList(int currentPage, int pageSize);
 	public int getBoardCount();
 	
+	// store1
+	public ArrayList<Dto_product> storeList1(int currentPage, int pageSize);
+	public int getBoardCount_Store1();
+
+	// store2
+	public ArrayList<Dto_product> storeList2(int currentPage, int pageSize);
+	public int getBoardCount_Store2();
+
+	// store3
+	public ArrayList<Dto_product> storeList3(int currentPage, int pageSize);
+	public int getBoardCount_Store3();
+
+	// store4
+	public ArrayList<Dto_product> storeList4(int currentPage, int pageSize);
+	public int getBoardCount_Store4();
+
+		
+	
 	
 	
 }
