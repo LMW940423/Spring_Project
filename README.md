@@ -26,7 +26,7 @@
   
   10.Command.execute(model)
 
-*단순 CRUD인 경우*
+**<단순 CRUD인 경우>
 
   1.Dao.java를 생성 (Interface)
   
@@ -40,7 +40,7 @@
   
   6.model.addAttribute("리턴할 이름", dao.메소드명); 리턴 (SELECT인 경우)
 
-*공통 작업*
+**<공통 작업>
 
   1.Dto, jsp 옮겨 오기
   
