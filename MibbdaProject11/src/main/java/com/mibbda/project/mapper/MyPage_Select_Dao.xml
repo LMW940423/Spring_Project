@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.mibbda.project.mypage.select.MyPage_Select_Dao">
+<select id="orderInfoDao" resultType="com.mibbda.project.mypage.select.Dto_OrderList">
+		SELECT I.ORDNO, P.PRDNAME, P.PRDPRICE, D.ORDQTY, I.ORDDATE, I.ORDDELIVERY, P.PRDNO FROM ORDERINFO I LEFT OUTER JOIN ORDERDETAIL D ON I.USER_USERID = D.USER_USERID, PRODUCT P WHERE P.PRDNO = D.GOODS_PRDNO AND I.ORDNO=D.ORDERINFO_ORDNO AND I.USER_USERID = #{param1} ORDER BY I.ORDDATE DESC
+	</select>
+</mapper>

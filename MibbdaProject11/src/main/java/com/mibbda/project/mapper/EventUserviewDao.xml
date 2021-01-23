@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mibbda.project.event.userview.EventUserviewDao">
+
+	<select id="listDao" resultType="com.mibbda.project.event.userview.EventUserviewDto">
+		SELECT @ROWNUM := @ROWNUM + 1 AS RNO, M.* FROM EVENT M, (SELECT @ROWNUM :=0)
+		TMP ORDER BY RNO LIMIT #{param1}, #{param2} 
+	</select>
+	
+	<select id="getBoardCount" resultType="int">
+		SELECT COUNT(*) FROM EVENT
+	</select>
+	
+</mapper>

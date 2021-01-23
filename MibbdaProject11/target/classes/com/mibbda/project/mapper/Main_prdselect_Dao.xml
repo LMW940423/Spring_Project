@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.mibbda.project.main.prdselect.Main_prdselect_Dao">
+
+<select id="NowPrd" resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT PRDNO, PRDFILENAME, PRDNAME , PRDPRICE FROM ORDERDETAIL O, PRODUCT P WHERE P.PRDNO = O.GOODS_PRDNO ORDER BY ORDQTY DESC LIMIT 5
+</select>
+<select id="NewPrd" resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT PRDNO, PRDFILENAME, PRDNAME , PRDPRICE FROM  PRODUCT P WHERE P.PRDNO ORDER BY PRDNO DESC LIMIT 5
+</select>
+<select id="Notice" resultType="com.mibbda.project.main.prdselect.Dto_notice">
+		SELECT NSEQNO,NTITLE,NCONTENT,NDATE,ADMIN_ADMINID FROM NOTICE  ORDER BY NSEQNO DESC
+</select>
+<select id="prd_Detail" resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT * FROM PRODUCT WHERE PRDNO = #{param1}
+	</select>
+	
+<select id="productList" resultType="com.mibbda.project.main.prdselect.Dto_product">
+		SELECT @ROWNUM := @ROWNUM + 1 AS RNO, M.* FROM PRODUCT M, (SELECT @ROWNUM :=0) TMP ORDER BY RNO LIMIT #{param1}, #{param2}
+	</select>
+	
+<select id="getBoardCount" resultType="Integer">
+		SELECT COUNT(*) FROM PRODUCT
+	</select>
+	
+
+</mapper>
