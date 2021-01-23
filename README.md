@@ -1,1 +1,3 @@
 # Spring_Project
+
+기존에 완성했던 Web_Proejct인 'Mibbda'를 Spring MyBatis버전으로 변형시키는 Project.
