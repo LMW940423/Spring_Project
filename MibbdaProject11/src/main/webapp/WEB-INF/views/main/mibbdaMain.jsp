@@ -303,7 +303,7 @@ $(function() {
 	        <c:forEach items="${real}" var="dto" begin="0" end="4">
 	       <td>
 				<div class="image">
-	        		<a href="productShowMain.five?prdNo=${dto.prdNo }&prdName=${dto.prdName }&prdPrice=${dto.prdPrice }"><img src="${pageContext.request.contextPath}/resources/image/${dto.prdFilename}"></a>
+	        		<a href="productShowMain.five?prdNo=${dto.prdNo }&prdName=${dto.prdName }&prdPrice=${dto.prdPrice }"><img src="<c:url value="/resources/image/${dto.prdFilename}"/>"></a>
 	        	</div>	
 	        </td>
 	        </c:forEach>
@@ -341,7 +341,7 @@ $(function() {
 	        <c:forEach items="${nw}" var="dto" begin="0" end="4">
 	       <td>
 				<div class="image">
-	        		<a href="productShowMain.five?prdNo=${dto.prdNo }&prdName=${dto.prdName }&prdPrice=${dto.prdPrice }"><img src="${pageContext.request.contextPath}/resources/image/${dto.prdFilename}"></a>
+	        		<a href="productShowMain.five?prdNo=${dto.prdNo }&prdName=${dto.prdName }&prdPrice=${dto.prdPrice }"><img src="<c:url value="/resources/image/${dto.prdFilename}"/>"></a>
 	        	</div>	
 	        </td>
 	        </c:forEach>

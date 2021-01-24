@@ -65,6 +65,8 @@
 	<beans:bean name="Show_store2List" class="com.mibbda.project.store.select.Store_Select_Store2Command"></beans:bean>
 	<beans:bean name="Show_store3List" class="com.mibbda.project.store.select.Store_Select_Store3Command"></beans:bean>
 	<beans:bean name="Show_store4List" class="com.mibbda.project.store.select.Store_Select_Store4Command"></beans:bean>
+	<beans:bean name="Show_EventList" class="com.mibbda.project.event.select.Event_Select_ListCommand"></beans:bean>
+	<beans:bean name="Show_EventDetail" class="com.mibbda.project.event.select.Event_Select_EventDetailCommand"></beans:bean>
 	
 	
 	<!-- ///////////////////////////////// -->

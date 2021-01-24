@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.mibbda.project.event.select.Event_Select_Dao">
+<select id="eventList"
+	resultType="com.mibbda.project.event.select.Dto_Event">
+	SELECT @ROWNUM := @ROWNUM + 1 AS RNO, M.* FROM EVENT M,
+	(SELECT @ROWNUM :=0)
+	TMP ORDER BY RNO LIMIT #{param1}, #{param2}
+</select>
+<select id="getBoardCount" resultType="Integer">
+	SELECT COUNT(*) FROM EVENT
+</select>
+
+<select id="participant" resultType="Integer">
+	SELECT COUNT(*) FROM PARTICIPATE WHERE EVENT_ESEQNO = #{param1} AND USER_USERID = #{param2}
+</select>
+
+<select id="eventView"
+	resultType="com.mibbda.project.event.select.Dto_Event">
+	SELECT * FROM EVENT WHERE ESEQNO = #{param1}
+</select>
+
+<select id="WinnerList"
+	resultType="com.mibbda.project.event.select.Dto_Participate">
+	SELECT * FROM PARTICIPATE WHERE EVENT_ESEQNO = #{param1} AND WIN = 'O'
+</select>
+
+</mapper>
